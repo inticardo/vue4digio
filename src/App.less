@@ -1,0 +1,231 @@
+@transfer-amount: 2000px;
+@transfer-time: 0.7s;
+
+@slides-width: 92vw;
+@slides-height: 81vh;
+@slides-border-width: 10px;
+@slides-border1-color: #35495e;
+@slides-border2-color: #41b883;
+@slides-padding: 50px;
+@slides-font-size: 250%;
+@slides-vcenter-top: 47%;
+@slides-color: #000;
+@slides-bg-color: #fff;
+@slides-margin-top: 15px;
+
+body, html {
+  background-color: #000;
+  overflow: hidden;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  .header {
+    text-align: center;
+    h1 {
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 50px;
+        img {
+          height: 50px;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+  .content {
+    color: #fff;
+    .slide {
+      z-index: 1;
+      display: block;
+      background-color: @slides-bg-color;
+      color: @slides-color;
+      width: @slides-width;
+      height: @slides-height;
+      margin-left: auto;
+      margin-right: auto;
+      border: @slides-border-width solid @slides-border1-color;
+      margin-top: @slides-margin-top;
+      padding: 0;
+      overflow: hidden;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      &::before {
+        z-index: -2;
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: @slides-border-width solid @slides-border2-color;
+      }
+      .slide-inner {
+        .step {
+          opacity: 0;
+          transition: opacity @transfer-time;
+          &.visible {
+            opacity: 1;
+          }
+        }
+        h1,h2,h3,h4,h5,h6 {
+          padding: 0;
+          margin: 0;
+        }
+        font-size: @slides-font-size;
+        margin: @slides-padding @slides-padding @slides-padding @slides-padding;
+        .vcenter {
+          position: absolute;
+          left: @slides-padding;
+          right: @slides-padding;
+          top: @slides-vcenter-top;
+          transform: translateY(-50%);
+        }
+        .hcenter {
+          text-align: center;
+          .hcenter-item {
+            display: inline-block;
+            * {
+              text-align: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+  .random {
+    position: absolute;
+    z-index: 99;
+    color: #f00;
+    bottom: 0;
+    right: 0;
+    padding: 16px;
+    transition: font-size @transfer-time;
+    
+    &.giant {
+      font-size: 700%;
+    }
+  }
+
+  /* From https://github.com/asika32764/vue2-animate */
+  @-webkit-keyframes fadeInLeftBig {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-@transfer-amount, 0, 0);
+              transform: translate3d(-@transfer-amount, 0, 0); }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+              transform: none; } }
+  
+  @keyframes fadeInLeftBig {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(-@transfer-amount, 0, 0);
+              transform: translate3d(-@transfer-amount, 0, 0); }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+              transform: none; } }
+  
+  @-webkit-keyframes fadeOutLeftBig {
+    from {
+      opacity: 1; }
+    to {
+      opacity: 0;
+      -webkit-transform: translate3d(-@transfer-amount, 0, 0);
+              transform: translate3d(-@transfer-amount, 0, 0); } }
+  
+  @keyframes fadeOutLeftBig {
+    from {
+      opacity: 1; }
+    to {
+      opacity: 0;
+      -webkit-transform: translate3d(-@transfer-amount, 0, 0);
+              transform: translate3d(-@transfer-amount, 0, 0); } }
+ 
+  @-webkit-keyframes fadeInRightBig {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(@transfer-amount, 0, 0);
+              transform: translate3d(@transfer-amount, 0, 0); }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+              transform: none; } }
+  
+  @keyframes fadeInRightBig {
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(@transfer-amount, 0, 0);
+              transform: translate3d(@transfer-amount, 0, 0); }
+    to {
+      opacity: 1;
+      -webkit-transform: none;
+              transform: none; } }
+  
+  @-webkit-keyframes fadeOutRightBig {
+    from {
+      opacity: 1; }
+    to {
+      opacity: 0;
+      -webkit-transform: translate3d(@transfer-amount, 0, 0);
+              transform: translate3d(@transfer-amount, 0, 0); } }
+  
+  @keyframes fadeOutRightBig {
+    from {
+      opacity: 1; }
+    to {
+      opacity: 0;
+      -webkit-transform: translate3d(@transfer-amount, 0, 0);
+              transform: translate3d(@transfer-amount, 0, 0); } }
+  
+  .fadeLeftBig-enter-active, .fadeInLeftBig,
+  .fadeLeftBig-leave-active, .fadeOutLeftBig {
+    -webkit-animation-duration: @transfer-time;
+            animation-duration: @transfer-time;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both; }
+  
+  .fadeLeftBig-enter-active, .fadeInLeftBig {
+    -webkit-animation-name: "fadeInLeftBig";
+            animation-name: "fadeInLeftBig"; }
+  
+  .fadeLeftBig-leave-active, .fadeOutLeftBig {
+    -webkit-animation-name: "fadeOutLeftBig";
+            animation-name: "fadeOutLeftBig"; }
+  
+  .fadeRight-enter-active, .fadeInRight,
+  .fadeRight-leave-active, .fadeOutRight {
+    -webkit-animation-duration: @transfer-time;
+            animation-duration: @transfer-time;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both; }
+  
+  .fadeRight-enter-active, .fadeInRight {
+    -webkit-animation-name: "fadeInRight";
+            animation-name: "fadeInRight"; }
+  
+  .fadeRight-leave-active, .fadeOutRight {
+    -webkit-animation-name: "fadeOutRight";
+            animation-name: "fadeOutRight"; }
+  
+  .fadeRightBig-enter-active, .fadeInRightBig,
+  .fadeRightBig-leave-active, .fadeOutRightBig {
+    -webkit-animation-duration: @transfer-time;
+            animation-duration: @transfer-time;
+    -webkit-animation-fill-mode: both;
+            animation-fill-mode: both; }
+  
+  .fadeRightBig-enter-active, .fadeInRightBig {
+    -webkit-animation-name: "fadeInRightBig";
+            animation-name: "fadeInRightBig"; }
+  
+  .fadeRightBig-leave-active, .fadeOutRightBig {
+    -webkit-animation-name: "fadeOutRightBig";
+            animation-name: "fadeOutRightBig"; }
+}
