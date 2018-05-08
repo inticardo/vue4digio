@@ -7,11 +7,9 @@ export default {
       step: 0
     }
   },
-  created () {
-    this.disableGlobalHandlers()
-  },
   mounted () {
     this.lastStep = this.$el.querySelectorAll('.step').length
+    this.disableGlobalHandlers()
     this.enableGlobalHandlers()
   },
   beforeDestroy () {
@@ -19,8 +17,8 @@ export default {
   },
   methods: {
     disableGlobalHandlers () {
-      EventBus.$off('nextSlide')
-      EventBus.$off('prevSlide')
+      EventBus.$off('nextSlide', this.next)
+      EventBus.$off('prevSlide', this.prev)
     },
     enableGlobalHandlers () {
       EventBus.$on('nextSlide', this.next)

@@ -8,7 +8,7 @@ let generatedRoutes = [{
   component: HelloWorld
 }]
 
-let totalSlides = 29
+let totalSlides = 19
 for (let slideNum = 1; slideNum <= totalSlides; slideNum++) {
   let slidePaddedNum = slideNum.toString().padStart(3, '0')
   generatedRoutes.push({
