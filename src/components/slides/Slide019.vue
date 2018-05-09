@@ -1,13 +1,12 @@
 <template>
   <div class="slide">
     <div class="slide-inner">
-      <div class="vcenter">
-        <div class="hcenter">
-          <div class="hcenter-item">
-            <h2>{{ title }}</h2>
-          </div>
-        </div>
-      </div>
+     <h2>{{ title }}</h2>
+      <ul class="vuex">
+        <li class="step" :class="{ visible: step >= 1 }"><a href="https://ssr.vuejs.org/">Vue Server Renderer</a></li>
+        <li class="step" :class="{ visible: step >= 2 }"><a href="https://nuxtjs.org/">Nuxt.js</a></li>
+        <li class="step" :class="{ visible: step >= 3 }"><a href="https://vuepress.vuejs.org/">VuePress</a></li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,7 +18,7 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Más detalles en los fuentes :)'
+      title: 'Algunos recursos interesantes'
     }
   }
 }
