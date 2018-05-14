@@ -2,37 +2,55 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <ul class="addons">
-        <li>Añadir un preprocesador CSS (less):
-          <div><img class="addingless" src="@/assets/addingless.png" alt="Adding less" /></div>
-          <div><img class="usingless" src="@/assets/usingless.png" alt="Using less" /></div>
-        </li>
-      </ul>
+      <div class="left">
+        <ul>
+          <li><ReverseText text="Hola, esto es una prueba" ></ReverseText></li>
+          <li><ReverseText text="Hola, esto es otra prueba" /></li>
+          <li><reverse-text text="Hola, esto es otra prueba más" /></li>
+          <li><reverse-text :text="title" /></li>
+        </ul>
+      </div>
+      <div class="right">
+        <img class="propscode" src="@/assets/propscode.png" alt="Props code" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import BaseSlide from '@/modules/BaseSlideMixin'
+import ReverseText from '@/components/ReverseText'
 export default {
   name: 'Slide016',
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Añadiendo utilidades'
+      title: 'Atributos de componente (props)'
     }
+  },
+  components: {
+    ReverseText
   }
 }
 </script>
 
 <style lang="less" scoped>
-.addons {
-  .addingless {
-    width: 50vw;
-    margin-top: 16px;
+.left {
+  margin-top: 32px;
+  float: left;
+  width: 48%;
+  button {
+    font-size: 200%;
+    padding: 32px;
   }
-  .usingless {
-    width: 25vw;
-  }
+}
+.right {
+  float: right;
+  width: 48%;
+}
+.propscode {
+  vertical-align: top;
+  margin-top: 16px;
+  height: 65vh;
 }
 </style>

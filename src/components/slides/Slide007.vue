@@ -2,34 +2,12 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <ul class="preview step" :class="{ visible: step == 1 }">
-        <li>Resultado mostrado por el navegador:
-          <div class="hcenter">
-            <img class="browserpreview" src="@/assets/preview.png" alt="Browser preview" />
-          </div>
-        </li>
-      </ul>
-      <ul class="preview step" :class="{ visible: step == 2 }">
-        <li>Código recibido por el navegador:
-          <div class="hcenter">
-            <img class="browsercode" src="@/assets/previewcode.png" alt="Browser code" />
-          </div>
-        </li>
-      </ul>
-      <ul class="preview step" :class="{ visible: step == 3 }">
-        <li>Mirando con el DOM inspector:
-          <div class="hcenter">
-            <img class="dominspect" src="@/assets/previewdom.png" alt="DOM inspector" />
-          </div>
-        </li>
-      </ul>
-      <ul class="preview step" :class="{ visible: step == 4 }">
-        <li>Usando las devtools de Vue.js
-          <div class="hcenter">
-            <img class="vueinspect" src="@/assets/previewdomvue.png" alt="VUE inspector" />
-          </div>
-        </li>
-      </ul>
+      <div class="hcenter">
+        <div class="hcenter-item">
+          <img class="tree tree1" src="@/assets/tree1.png" alt="Tree 1" />
+          <img class="tree tree2" src="@/assets/tree2.png" alt="Tree 2" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,31 +19,18 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Previsualizando el resultado'
+      title: 'Estructura del proyecto'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.preview {
-  position: absolute;
-  width: 90%;
-}
-.browserpreview {
+.tree {
+  vertical-align: top;
   margin-top: 32px;
-  width: 30vw;
-}
-.browsercode {
-  margin-top: 32px;
-  width: 60vw;
-}
-.dominspect {
-  margin-top: 32px;
-  width: 40vw;
-}
-.vueinspect {
-  margin-top: 32px;
-  width: 70vw;
+  width: 16vw;
+  margin-left: 32px;
+  margin-right: 32px;
 }
 </style>

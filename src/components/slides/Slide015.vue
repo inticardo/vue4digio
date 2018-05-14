@@ -2,10 +2,13 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <div class="hcenter">
-        <div class="hcenter-item">
-          <img class="propscomponent" src="@/assets/propscomponent.png" alt="Props component" />
-        </div>
+      <div class="left">
+        <button type="button" @click="buttonClick">
+          ¡Púlsame!
+        </button>
+      </div>
+      <div class="right">
+        <img class="eventscode" src="@/assets/eventscode.png" alt="Events code" />
       </div>
     </div>
   </div>
@@ -18,15 +21,35 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Definición de atributos de componente'
+      title: 'Eventos'
+    }
+  },
+  methods: {
+    buttonClick () {
+      this.title += ' (click)'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.propscomponent {
+.left {
   margin-top: 32px;
-  width: 40vw;
+  float: left;
+  width: 48%;
+  button {
+    font-size: 200%;
+    padding: 32px;
+  }
+}
+.right {
+  margin-top: -70px;
+  float: right;
+  width: 48%;
+}
+.eventscode {
+  vertical-align: top;
+  margin-top: 16px;
+  height: 70vh;
 }
 </style>

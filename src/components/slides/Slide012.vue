@@ -2,16 +2,15 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <div class="left">
-        <input type="text" v-model="input" />
-        <p>Valor del input: <br />"{{ input }}"</p>
-        <p>Palabras del input:</p>
-        <ul>
-          <li v-for="(item, index) in words" :key="index">{{ item }}</li>
-        </ul>
-      </div>
-      <div class="right">
-        <img class="reactivecode" src="@/assets/reactivecode.png" alt="Reactive code" />
+      <div class="hcenter">
+        <div class="hcenter-item">
+          <img class="lifecycle"
+            src="@/assets/lifecycle1.png"
+            alt="Lifecycle 1" />
+          <img class="lifecycle"
+            src="@/assets/lifecycle2.png"
+            alt="Lifecycle 2" />
+        </div>
       </div>
     </div>
   </div>
@@ -24,36 +23,16 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Programación reactiva',
-      input: ''
-    }
-  },
-  computed: {
-    words () {
-      if (!this.input) return []
-      return this.input.split(' ')
+      title: 'Ciclo de vida de un componente'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.left {
-  margin-top: 32px;
-  float: left;
-  width: 48%;
-  input {
-    font-size: 130%;
-  }
-}
-.right {
-  margin-top: -70px;
-  float: right;
-  width: 48%;
-}
-.reactivecode {
+.lifecycle {
   vertical-align: top;
   margin-top: 16px;
-  height: 70vh;
+  width: 30vw;
 }
 </style>

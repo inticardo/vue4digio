@@ -1,11 +1,12 @@
 <template>
   <div class="slide">
     <div class="slide-inner">
-     <h2>{{ title }}</h2>
-      <ul class="vuex">
-        <li class="step" :class="{ visible: step >= 1 }"><a href="https://ssr.vuejs.org/">Vue Server Renderer</a></li>
-        <li class="step" :class="{ visible: step >= 2 }"><a href="https://nuxtjs.org/">Nuxt.js</a></li>
-        <li class="step" :class="{ visible: step >= 3 }"><a href="https://vuepress.vuejs.org/">VuePress</a></li>
+      <h2>{{ title }}</h2>
+      <ul class="addons">
+        <li>Añadir un manejador de estado de aplicación (Vuex):
+          <div><img class="addingvuex" src="@/assets/addingvuex.png" alt="Adding Vuex" /></div>
+          <div><img class="usingvuex" src="@/assets/usingvuex.png" alt="Using Vuex" /></div>
+        </li>
       </ul>
     </div>
   </div>
@@ -18,11 +19,20 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Algunos recursos interesantes'
+      title: 'Añadiendo utilidades'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
+.addons {
+  .addingvuex {
+    width: 30vw;
+    margin-top: 16px;
+  }
+  .usingvuex {
+    width: 55vw;
+  }
+}
 </style>

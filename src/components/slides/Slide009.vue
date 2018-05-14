@@ -2,101 +2,32 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <ul class="options step" :class="{ visible: step == 1 }">
-        <li><code>data</code>:<pre>
-
-          data () {
-            return {
-              var1: 'hello',
-              var2: 0,
-              var3: {
-                attr1: 'test'
-                attr2: ['a', 'b', 'c']
-              }
-            }
-          }
-        </pre>
+      <ul class="preview step" :class="{ visible: step == 1 }">
+        <li>Resultado mostrado por el navegador:
+          <div class="hcenter">
+            <img class="browserpreview" src="@/assets/preview.png" alt="Browser preview" />
+          </div>
         </li>
       </ul>
-      <ul class="options step" :class="{ visible: step == 2 }">
-        <li><code>props</code>:<pre>
-
-          props: {
-            text: { type: String, required: true },
-            anumber: { type: Number, default: 7 },
-            obj: { type: Object, default: () => ({ 'attr1': 'value1' }) },
-            arr: { type: Array, default: () => [1, 2, 3] }
-          }
-        </pre>
+      <ul class="preview step" :class="{ visible: step == 2 }">
+        <li>Código recibido por el navegador:
+          <div class="hcenter">
+            <img class="browsercode" src="@/assets/previewcode.png" alt="Browser code" />
+          </div>
         </li>
       </ul>
-      <ul class="options step" :class="{ visible: step == 3 }">
-        <li><code>methods</code>:<pre>
-
-          methods: {
-            myMethod (var) {
-              return var * this.var1
-            },
-            otherMethod (var) {
-              return this.myMethod(var + 1)
-            }
-          }
-        </pre>
+      <ul class="preview step" :class="{ visible: step == 3 }">
+        <li>Mirando con el DOM inspector:
+          <div class="hcenter">
+            <img class="dominspect" src="@/assets/previewdom.png" alt="DOM inspector" />
+          </div>
         </li>
       </ul>
-      <ul class="options step" :class="{ visible: step == 4 }">
-        <li><code>computed</code>:<pre>
-
-          computed: {
-            computedProperty () {
-              return this.var1 * this.var2
-            }
-          }
-        </pre>
-        </li>
-      </ul>
-      <ul class="options step" :class="{ visible: step == 5 }">
-        <li><code>watch</code>:<pre>
-
-          watch: {
-            var2 (val, oldVal) {
-              console.log('new: %s, old: %s', val, oldVal)
-            }
-          }
-        </pre>
-        </li>
-      </ul>
-      <ul class="options step" :class="{ visible: step == 6 }">
-        <li><code>mixins</code> / <code>extends</code>:<pre>
-
-          mixins: [BaseComponent, OtherBaseComponent],
-          extends: OtherComponent
-        </pre>
-        </li>
-      </ul>
-      <ul class="options step" :class="{ visible: step == 7 }">
-        <li><code>components</code>:<pre>
-
-          components: {
-            ImportedComponent,
-            RenamedComponent: OtherComponent
-          }
-        </pre>
-        </li>
-      </ul>
-      <ul class="options step" :class="{ visible: step == 8 }">
-        <li>Lifecycle hooks:<pre>
-
-          created () {
-            console.log('I\'m alive!')
-          },
-          mounted () {
-            console.log('Component mounted!')
-          },
-          beforeDestroy () {
-            console.log('Everyone dies someday...')
-          }
-        </pre>
+      <ul class="preview step" :class="{ visible: step == 4 }">
+        <li>Usando las devtools de Vue.js
+          <div class="hcenter">
+            <img class="vueinspect" src="@/assets/previewdomvue.png" alt="VUE inspector" />
+          </div>
         </li>
       </ul>
     </div>
@@ -110,19 +41,31 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Opciones de un componente'
+      title: 'Previsualizando el resultado'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.options {
+.preview {
   position: absolute;
   width: 90%;
 }
-pre {
-  background-color: #000;
-  color: #fff;
+.browserpreview {
+  margin-top: 32px;
+  width: 30vw;
+}
+.browsercode {
+  margin-top: 32px;
+  width: 60vw;
+}
+.dominspect {
+  margin-top: 32px;
+  width: 40vw;
+}
+.vueinspect {
+  margin-top: 32px;
+  width: 70vw;
 }
 </style>

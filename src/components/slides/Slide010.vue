@@ -4,12 +4,12 @@
       <h2>{{ title }}</h2>
       <div class="hcenter">
         <div class="hcenter-item">
-          <img class="lifecycle"
-            src="@/assets/lifecycle1.png"
-            alt="Lifecycle 1" />
-          <img class="lifecycle"
-            src="@/assets/lifecycle2.png"
-            alt="Lifecycle 2" />
+          <img class="component-example"
+            src="@/assets/component1.png"
+            alt="Component example 1" />
+          <img class="component-example"
+            src="@/assets/component2.png"
+            alt="Component example 2" />
         </div>
       </div>
     </div>
@@ -23,16 +23,16 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Ciclo de vida de un componente'
+      title: 'Secciones de un componente'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.lifecycle {
+.component-example {
   vertical-align: top;
-  margin-top: 16px;
-  width: 30vw;
+  margin-top: 32px;
+  width: 35vw;
 }
 </style>

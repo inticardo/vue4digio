@@ -2,12 +2,47 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <div class="hcenter">
-        <div class="hcenter-item">
-          <img class="tree tree1" src="@/assets/tree1.png" alt="Tree 1" />
-          <img class="tree tree2" src="@/assets/tree2.png" alt="Tree 2" />
-        </div>
-      </div>
+      <ul class="incrementally prestep" :class="{ visible: step == 0 }">
+        <li>Plantilla base:<pre>
+
+          &lt;div id="app"&gt;
+            &lt;input type="text" v-model="message" /&gt;
+            &lt;div&gt;Mensaje: "{{ message }}"&lt;/div&gt;
+          &lt;/div&gt;
+        </pre>
+        </li>
+      </ul>
+      <ul class="incrementally step" :class="{ visible: step == 1 }">
+        <li>Cargamos el core:<pre>
+
+          &lt;script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.min.js"&gt;
+          &lt;/script&gt;
+        </pre>
+        </li>
+      </ul>
+      <ul class="incrementally step" :class="{ visible: step == 2 }">
+        <li>Instanciamos Vue:<pre>
+
+          &lt;script&gt;
+          var app = new Vue({
+            el: '#app',
+            data: function() {
+              return {
+                message: ''
+              };
+            }
+          });
+          &lt;/script&gt;
+        </pre>
+        </li>
+      </ul>
+      <ul class="incrementally step" :class="{ visible: step == 3 }">
+        <li>Y listo:
+          <div class="hcenter">
+            <img class="helloworld" src="@/assets/helloworld.png" alt="Browser code" />
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,18 +54,22 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Estructura del proyecto'
+      title: '« Incrementally adoptable »'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.tree {
-  vertical-align: top;
-  margin-top: 32px;
-  width: 16vw;
-  margin-left: 32px;
-  margin-right: 32px;
+.incrementally {
+  position: absolute;
+  width: 90%;
+}
+pre {
+  background-color: #000;
+  color: #fff;
+}
+.helloworld {
+  width: 40%;
 }
 </style>

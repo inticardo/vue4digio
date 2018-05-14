@@ -15,11 +15,11 @@
 <script>
 import BaseSlide from '@/modules/BaseSlideMixin'
 export default {
-  name: 'Slide004',
+  name: 'Slide022',
   mixins: [BaseSlide],
   data () {
     return {
-      title: '« Incrementally adoptable »'
+      title: 'Más en los fuentes :)'
     }
   }
 }

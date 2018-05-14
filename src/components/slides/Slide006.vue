@@ -2,41 +2,35 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <ul class="files step" :class="{ visible: step == 1 }">
-        <li><code>./index.html</code>
+      <ol class="first-steps step" :class="{ visible: step == 1 }">
+        <li>Instalar vue-cli:
           <div class="hcenter">
-            <img class="indexhtml" src="@/assets/index.png" alt="index.html" />
+            <img class="cli-install" src="@/assets/cli_install.png" alt="Vue-cli install" />
           </div>
         </li>
-      </ul>
-      <ul class="files step" :class="{ visible: step == 2 }">
-        <li><code>./src/main.js</code>
+      </ol>
+      <ol class="first-steps step" start="2" :class="{ visible: step == 2 }">
+        <li>Elegir una plantilla:
           <div class="hcenter">
-            <img class="mainjs" src="@/assets/main.png" alt="main.js" />
+            <img class="cli-list" src="@/assets/vuelist.png" alt="Vue-cli list templates" />
           </div>
         </li>
-      </ul>
-      <ul class="files step" :class="{ visible: step == 3 }">
-        <li><code>./src/App.vue</code>
+      </ol>
+      <ol class="first-steps step" start="3" :class="{ visible: step == 3 }">
+        <li>Instalar una plantilla y seguir sus pasos de configuración:
           <div class="hcenter">
-            <img class="appvue" src="@/assets/vueapp.png" alt="app.vue" />
+            <img class="cli-init" src="@/assets/vueinit.png" alt="Vue-cli init template" />
           </div>
         </li>
-      </ul>
-      <ul class="files step" :class="{ visible: step == 4 }">
-        <li><code>./src/router/index.js</code>
+      </ol>
+      <ol class="first-steps step" start="4" :class="{ visible: step == 4 }">
+        <li>Compilar y empezar a desarrollar:
           <div class="hcenter">
-            <img class="routerjs" src="@/assets/router.png" alt="router.js" />
+            <img class="cli-init-finish" src="@/assets/vueinitfinish.png" alt="Vue-cli init finish" />
+            <img class="cli-compile" src="@/assets/compile.png" alt="Vue-cli compile" />
           </div>
         </li>
-      </ul>
-      <ul class="files step" :class="{ visible: step == 5 }">
-        <li><code>./src/components/HelloWorld.vue</code>
-          <div class="hcenter">
-            <img class="hellovue" src="@/assets/hello.png" alt="hello.vue" />
-          </div>
-        </li>
-      </ul>
+      </ol>
     </div>
   </div>
 </template>
@@ -48,35 +42,34 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Archivos clave'
+      title: 'Creando un proyecto Vue.js desde cero'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.files {
+.first-steps {
   position: absolute;
   width: 90%;
 }
-.indexhtml {
-  margin-top: 32px;
-  width: 70vw;
+.cli-install {
+  height: 30vw;
 }
-.mainjs {
+.cli-list {
+  margin-top: 32px;
+  width: 80vw;
+}
+.cli-init {
+  margin-top: 32px;
+  width: 80vw;
+}
+.cli-init-finish {
+  margin-top: 32px;
+  width: 80vw;
+}
+.cli-compile {
   margin-top: 32px;
   width: 60vw;
-}
-.appvue {
-  margin-top: 16px;
-  width: 34vw;
-}
-.routerjs {
-  margin-top: 32px;
-  width: 40vw;
-}
-.hellovue {
-  margin-top: 32px;
-  width: 45vw;
 }
 </style>

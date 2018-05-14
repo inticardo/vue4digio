@@ -3,15 +3,15 @@
     <div class="slide-inner">
       <h2>{{ title }}</h2>
       <div class="left">
+        <input type="text" v-model="input" />
+        <p>Valor del input: <br />"{{ input }}"</p>
+        <p>Palabras del input:</p>
         <ul>
-          <li><ReverseText text="Hola, esto es una prueba" ></ReverseText></li>
-          <li><ReverseText text="Hola, esto es otra prueba" /></li>
-          <li><reverse-text text="Hola, esto es otra prueba más" /></li>
-          <li><reverse-text :text="title" /></li>
+          <li v-for="(item, index) in words" :key="index">{{ item }}</li>
         </ul>
       </div>
       <div class="right">
-        <img class="propscode" src="@/assets/propscode.png" alt="Props code" />
+        <img class="reactivecode" src="@/assets/reactivecode.png" alt="Reactive code" />
       </div>
     </div>
   </div>
@@ -19,17 +19,20 @@
 
 <script>
 import BaseSlide from '@/modules/BaseSlideMixin'
-import ReverseText from '@/components/ReverseText'
 export default {
   name: 'Slide014',
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Atributos de componente (props)'
+      title: 'Programación reactiva',
+      input: ''
     }
   },
-  components: {
-    ReverseText
+  computed: {
+    words () {
+      if (!this.input) return []
+      return this.input.split(' ')
+    }
   }
 }
 </script>
@@ -39,18 +42,18 @@ export default {
   margin-top: 32px;
   float: left;
   width: 48%;
-  button {
-    font-size: 200%;
-    padding: 32px;
+  input {
+    font-size: 130%;
   }
 }
 .right {
+  margin-top: -70px;
   float: right;
   width: 48%;
 }
-.propscode {
+.reactivecode {
   vertical-align: top;
   margin-top: 16px;
-  height: 65vh;
+  height: 70vh;
 }
 </style>

@@ -2,12 +2,11 @@
   <div class="slide">
     <div class="slide-inner">
       <h2>{{ title }}</h2>
-      <ul class="addons">
-        <li>Añadir un manejador de estado de aplicación (Vuex):
-          <div><img class="addingvuex" src="@/assets/addingvuex.png" alt="Adding Vuex" /></div>
-          <div><img class="usingvuex" src="@/assets/usingvuex.png" alt="Using Vuex" /></div>
-        </li>
-      </ul>
+      <div class="hcenter">
+        <div class="hcenter-item">
+          <img class="propscomponent" src="@/assets/propscomponent.png" alt="Props component" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,20 +18,15 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Añadiendo utilidades'
+      title: 'Definición de atributos de componente'
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-.addons {
-  .addingvuex {
-    width: 30vw;
-    margin-top: 16px;
-  }
-  .usingvuex {
-    width: 55vw;
-  }
+.propscomponent {
+  margin-top: 32px;
+  width: 40vw;
 }
 </style>

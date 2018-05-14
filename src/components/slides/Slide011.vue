@@ -3,73 +3,99 @@
     <div class="slide-inner">
       <h2>{{ title }}</h2>
       <ul class="options step" :class="{ visible: step == 1 }">
-        <li><code>v-if</code> / <code>v-else</code> / <code>v-else-if</code>:<pre>
+        <li><code>data</code>:<pre>
 
-          &lt;div v-if="myVar > 7"&gt;
-            This is visible if myVar &gt; 7
-          &lt;/div&gt;
-          &lt;div v-else-if="myVar > 5"&gt;
-            This is visible if myVar &gt; 5 and &lt;= 7
-          &lt;/div&gt;
-          &lt;div v-else&gt;
-            This is visible if myVar &lt;= 5
-          &lt;/div&gt;
+          data () {
+            return {
+              var1: 'hello',
+              var2: 0,
+              var3: {
+                attr1: 'test'
+                attr2: ['a', 'b', 'c']
+              }
+            }
+          }
         </pre>
         </li>
       </ul>
       <ul class="options step" :class="{ visible: step == 2 }">
-        <li><code>v-bind (:)</code>:<pre>
+        <li><code>props</code>:<pre>
 
-          &lt;img v-bind:src="imageSrc"&gt;
-          &lt;img :src="imageSrc"&gt;
-          &lt;img :src="'/path/to/images/' + fileName"&gt;
-          &lt;div :class="{ red: isRed }"&gt;&lt;/div&gt;
-          &lt;div :class="[classA, classB]"&gt;&lt;/div&gt;
-          &lt;div :class="[classA, { classB: isB, classC: isC }]"&gt;
-          &lt;div :style="{ fontSize: size + 'px' }"&gt;&lt;/div&gt;
-          &lt;div :style="[styleObjectA, styleObjectB]"&gt;&lt;/div&gt;
+          props: {
+            text: { type: String, required: true },
+            anumber: { type: Number, default: 7 },
+            obj: { type: Object, default: () => ({ 'attr1': 'value1' }) },
+            arr: { type: Array, default: () => [1, 2, 3] }
+          }
         </pre>
         </li>
       </ul>
       <ul class="options step" :class="{ visible: step == 3 }">
-        <li><code>v-for</code>:<pre>
+        <li><code>methods</code>:<pre>
 
-          &lt;ul&gt;
-            &lt;li v-for="(item, index) in items" :key="index"&gt;
-              <span v-pre>{{ item }}</span>
-            &lt;/li&gt;
-          &lt;/ul&gt;
+          methods: {
+            myMethod (var) {
+              return var * this.var1
+            },
+            otherMethod (var) {
+              return this.myMethod(var + 1)
+            }
+          }
         </pre>
         </li>
       </ul>
       <ul class="options step" :class="{ visible: step == 4 }">
-        <li><code>v-on (@)</code>:<pre>
+        <li><code>computed</code>:<pre>
 
-          &lt;button v-on:click="doThis"&gt;&lt;/button&gt;
-          &lt;button v-on:click="doThat('hello', $event)"&gt;&lt;/button&gt;
-          &lt;button @click="doThis"&gt;&lt;/button&gt;
-          &lt;button @click.stop="doThis"&gt;&lt;/button&gt;
-          &lt;button @click.prevent="doThis"&gt;&lt;/button&gt;
-          &lt;form @submit.prevent&gt;&lt;/form&gt;
-          &lt;button v-on:click.once="doThis"&gt;&lt;/button&gt;
-          &lt;button v-on="{ mousedown: doThis, mouseup: doThat }"&gt;&lt;/button&gt;
+          computed: {
+            computedProperty () {
+              return this.var1 * this.var2
+            }
+          }
         </pre>
         </li>
       </ul>
       <ul class="options step" :class="{ visible: step == 5 }">
-        <li><code>v-model</code>:<pre>
+        <li><code>watch</code>:<pre>
 
-          &lt;input v-model="message" placeholder="edit me"&gt;
-          &lt;input type="checkbox" id="checkbox" v-model="checked"&gt;
+          watch: {
+            var2 (val, oldVal) {
+              console.log('new: %s, old: %s', val, oldVal)
+            }
+          }
+        </pre>
+        </li>
+      </ul>
+      <ul class="options step" :class="{ visible: step == 6 }">
+        <li><code>mixins</code> / <code>extends</code>:<pre>
 
-          &lt;input type="checkbox" id="jack" value="Jack" v-model="checkedNames"&gt;
-          &lt;label for="jack"&gt;Jack&lt;/label&gt;
-          &lt;input type="checkbox" id="john" value="John" v-model="checkedNames"&gt;
-          &lt;label for="john"&gt;John&lt;/label&gt;
-          &lt;input type="checkbox" id="mike" value="Mike" v-model="checkedNames"&gt;
-          &lt;label for="mike"&gt;Mike&lt;/label&gt;
-          &lt;br&gt;
-          &lt;span&gt;Checked names: <span v-pre>{{ checkedNames }}</span>&lt;/span&gt;
+          mixins: [BaseComponent, OtherBaseComponent],
+          extends: OtherComponent
+        </pre>
+        </li>
+      </ul>
+      <ul class="options step" :class="{ visible: step == 7 }">
+        <li><code>components</code>:<pre>
+
+          components: {
+            ImportedComponent,
+            RenamedComponent: OtherComponent
+          }
+        </pre>
+        </li>
+      </ul>
+      <ul class="options step" :class="{ visible: step == 8 }">
+        <li>Lifecycle hooks:<pre>
+
+          created () {
+            console.log('I\'m alive!')
+          },
+          mounted () {
+            console.log('Component mounted!')
+          },
+          beforeDestroy () {
+            console.log('Everyone dies someday...')
+          }
         </pre>
         </li>
       </ul>
@@ -84,7 +110,7 @@ export default {
   mixins: [BaseSlide],
   data () {
     return {
-      title: 'Directivas de Vue.js'
+      title: 'Opciones de un componente'
     }
   }
 }
