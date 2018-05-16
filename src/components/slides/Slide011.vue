@@ -94,7 +94,7 @@
             console.log('Component mounted!')
           },
           beforeDestroy () {
-            console.log('Everyone dies someday...')
+            console.log('Okay, bye!')
           }
         </pre>
         </li>
