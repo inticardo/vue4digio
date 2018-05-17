@@ -83,8 +83,8 @@
     </ul>
     <h2>About this talk</h2>
     <ul>
-      <li><a href="https://github.com/inticardo/vue4digio">Github page</a></li>
-      <li><a href="https://www.digio.es">DIGIO site</a></li>
+      <li><a href="https://github.com/inticardo/vue4digio">https://github.com/inticardo/vue4digio</a></li>
+      <li><a href="https://www.digio.es">https://www.digio.es</a></li>
     </ul>
     <h2><router-link to="/slides/slide001">Let's go!</router-link></h2>
   </div>
@@ -106,7 +106,7 @@ export default {
 .hello {
   position: absolute;
   width: 100%;
-  font-size: 125%;
+  font-size: 165%;
   text-align: center;
 }
 
