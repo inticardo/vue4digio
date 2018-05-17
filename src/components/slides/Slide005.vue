@@ -8,7 +8,7 @@
           &lt;div id="app"&gt;
             &lt;h1&gt;Vue.js test&lt;/h1&gt;
             &lt;input type="text" v-model="message" /&gt;
-            &lt;div&gt;Mensaje: "{{ message }}"&lt;/div&gt;
+            &lt;div&gt;Mensaje: "<span v-pre>{{ message }}</span>"&lt;/div&gt;
           &lt;/div&gt;
         </pre>
         </li>
